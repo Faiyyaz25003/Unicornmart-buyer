@@ -1,9 +1,10 @@
+import Login from '@/Components/Auth/Login/Login'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      Hello
+      <Login/>
     </div>
   )
 }
