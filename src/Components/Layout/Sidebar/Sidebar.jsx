@@ -11,9 +11,12 @@ import {
   Menu,
   X,
   UserPlus,
+  ContactIcon,
 } from "lucide-react";
 import Dashboard from "@/Components/Dashboard/Dashboard";
-
+import ProductView from "@/Components/Product/ProductView/ProductView";
+import Contact from "@/Components/Contact/Contact";
+import Profile from "@/Components/Profile/Profile";
 
 export default function Sidebar() {
   const [currentView, setCurrentView] = useState("dashboard");
@@ -34,7 +37,9 @@ export default function Sidebar() {
 
   const menuItems = [
     { id: "dashboard", name: "Dashboard", icon: LayoutDashboard },
-    { id: "Product", name: "Product", icon: CalendarCheck },
+    { id: "ProductView", name: "Product View", icon: CalendarCheck },
+    { id: "contact", name: "Contact", icon: ContactIcon }, // ✅
+    { id: "profile", name: "Profile", icon: ContactIcon }, // ✅
   ];
 
   const handleLinkClick = (id) => {
@@ -46,6 +51,12 @@ export default function Sidebar() {
     switch (currentView) {
       case "dashboard":
         return <Dashboard />;
+      case "ProductView":
+        return <ProductView />;
+      case "contact":
+        return <Contact />;
+      case "profile":
+        return <Profile />;
       default:
         return <Dashboard />;
     }
