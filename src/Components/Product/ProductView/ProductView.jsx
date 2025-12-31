@@ -139,7 +139,7 @@ const ProductView = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">
+        <h1 className="mb-[3px] text-3xl font-bold text-gray-800 mb-8">
           Scrap Products
         </h1>
 
@@ -169,7 +169,7 @@ const ProductView = () => {
                       <img
                         src={currentImage}
                         alt={product.scrapName}
-                        className="w-full h-64 object-cover"
+                        className="w-full h-80 object-cover"
                         onError={(e) => {
                           e.target.src =
                             "https://via.placeholder.com/400x300?text=Image+Not+Found";
@@ -234,48 +234,6 @@ const ProductView = () => {
                         >
                           <ShoppingCart className="w-4 h-4" />
                           Buy Now
-                        </button>
-                      </div>
-
-                      {/* Edit and Delete Buttons */}
-                      <div className="grid grid-cols-2 gap-3">
-                        <button
-                          onClick={() => handleEditStart(product)}
-                          className="flex items-center justify-center gap-2 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                        >
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                            />
-                          </svg>
-                          Edit Product
-                        </button>
-                        <button
-                          onClick={() => handleDelete(product._id)}
-                          className="flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
-                        >
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                            />
-                          </svg>
-                          Delete Product
                         </button>
                       </div>
                     </div>
