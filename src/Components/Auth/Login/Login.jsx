@@ -16,6 +16,22 @@ export default function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const res = await axios.post("http://localhost:5000/api/users/login", {
+  //       role: "buyer",
+  //       ...form,
+  //     });
+
+  //     localStorage.setItem("user", JSON.stringify(res.data.user));
+  //     alert(res.data.message);
+  //     router.push("/dashboard");
+  //   } catch (err) {
+  //     alert(err?.response?.data?.message || "Login Failed");
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -24,7 +40,10 @@ export default function Login() {
         ...form,
       });
 
+      // ✅ Save token & user
+      localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
+
       alert(res.data.message);
       router.push("/dashboard");
     } catch (err) {

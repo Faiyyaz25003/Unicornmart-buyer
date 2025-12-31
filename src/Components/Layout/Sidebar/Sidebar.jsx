@@ -17,6 +17,7 @@ import Dashboard from "@/Components/Dashboard/Dashboard";
 import ProductView from "@/Components/Product/ProductView/ProductView";
 import Contact from "@/Components/Contact/Contact";
 import Profile from "@/Components/Profile/Profile";
+import MyOrders from "@/Components/MyOrder/MyOrders";
 
 export default function Sidebar() {
   const [currentView, setCurrentView] = useState("dashboard");
@@ -38,6 +39,7 @@ export default function Sidebar() {
   const menuItems = [
     { id: "dashboard", name: "Dashboard", icon: LayoutDashboard },
     { id: "ProductView", name: "Product View", icon: CalendarCheck },
+    { id: "myOrder", name: "My Order", icon: ContactIcon }, // ✅
     { id: "contact", name: "Contact", icon: ContactIcon }, // ✅
     { id: "profile", name: "Profile", icon: ContactIcon }, // ✅
   ];
@@ -57,6 +59,8 @@ export default function Sidebar() {
         return <Contact />;
       case "profile":
         return <Profile />;
+      case "myOrder":
+        return<MyOrders/>
       default:
         return <Dashboard />;
     }
