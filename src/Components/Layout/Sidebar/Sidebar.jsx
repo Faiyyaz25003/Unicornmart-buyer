@@ -19,6 +19,7 @@ import Contact from "@/Components/Contact/Contact";
 import Profile from "@/Components/Profile/Profile";
 import MyOrders from "@/Components/MyOrder/MyOrders";
 import OrderTracking from "@/Components/OrderTracking/OrderTracking";
+import ComplaintForm from "@/Components/ComplaintForm/ComplaintForm";
 
 export default function Sidebar() {
   const [currentView, setCurrentView] = useState("dashboard");
@@ -43,6 +44,8 @@ export default function Sidebar() {
     { id: "myOrder", name: "My Order", icon: ContactIcon },
     { id: "orderTracking", name: "Order Tracking", icon: ContactIcon },
     { id: "contact", name: "Contact", icon: ContactIcon },
+    { id: "complaintForm", name: "Complaint Form", icon: ContactIcon },
+
     { id: "profile", name: "Profile", icon: ContactIcon },
   ];
 
@@ -59,6 +62,8 @@ export default function Sidebar() {
         return <ProductView />;
       case "contact":
         return <Contact />;
+      case "complaintForm":
+        return <ComplaintForm />;
       case "profile":
         return <Profile />;
       case "myOrder":
