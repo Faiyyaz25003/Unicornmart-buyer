@@ -50,12 +50,33 @@ const ProductView = () => {
   };
 
   // Interested product
-  const handleInterested = async (id) => {
+  const handleInterested = async (productId) => {
+    const user = JSON.parse(localStorage.getItem("user")); // login ke baad save hota hai
+
     try {
-      await fetch(`${API}/${id}/interested`, { method: "POST" });
-      alert("❤️ Interest Sent");
+      const res = await fetch(`${API}/${productId}/interested`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: user.id,
+          name: user.name,
+          email: user.email,
+          phone: user.phone,
+          role: user.role,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message);
+        return;
+      }
+
+      alert("❤️ Interest Sent Successfully");
     } catch (err) {
-      console.error(err);
       alert("❌ Failed to send interest");
     }
   };
